@@ -1,5 +1,6 @@
 import template from './app.html!text';
-import './app.css!';
+//import './app.css!';
+import './assets/css/global.css!'
 
 let appComponent = ()=>{
 	return {

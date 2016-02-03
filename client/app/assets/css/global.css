@@ -1,0 +1,61 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+body {
+  height: 100%;
+  background-color: #EFEFEF;
+  font-family: 'Roboto', sans-serif; }
+
+.app {
+  height: 100%;
+  background-color: #EFEFEF;
+  font-family: 'Roboto', sans-serif; }
+
+/*JSPM doesn't have a Stylus plugin yet and it's LESS plugin*/
+/*doesn't support @imports yet, so we're going to use straight css.*/
+/*Here's our color palate:*/
+/*primaryColor = #0277BD*/
+/*accentColor = #1DE9B6*/
+/*bgColor = #efefef*/
+/*darkBgColor = #263238*/
+/*lightBgColor = #37474F*/
+/*lightTextColor = #F5F5F5*/
+/*darkTextColor = #212121*/
+.hero {
+  /* darkBgColor */
+  background-color: #263238;
+  height: 500px;
+  padding: 30px; }
+
+.hero * {
+  /* lightTextColor */
+  color: #F5F5F5; }
+
+.navbar {
+  height: 65px;
+  /* primaryColor */
+  background-color: #0277BD;
+  padding: 10px; }
+
+.navbar .nav-links,
+.navbar .logo {
+  display: inline-block; }
+
+.navbar .logo {
+  /* lightTextColor */
+  color: #F5F5F5;
+  margin-right: 50%; }
+
+.navbar .nav-links span {
+  /* lightTextColor */
+  color: #F5F5F5;
+  font-size: 1.6rem; }
+
+.about {
+  background-color: darkgoldenrod;
+  width: 23.72881%;
+  float: left;
+  margin-right: 1.69492%; }
+
+.home {
+  color: red; }
+
+/*# sourceMappingURL=maps/global.css.map */

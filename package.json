@@ -25,12 +25,16 @@
       "angular-ui-router": "github:angular-ui/ui-router@^0.2.15",
       "capaj/systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.5.0",
       "css": "github:systemjs/plugin-css@^0.1.11",
+      "gulp-sass": "npm:gulp-sass@^2.1.1",
       "normalize.css": "github:necolas/normalize.css@^3.0.3",
+      "scss": "github:mobilexag/plugin-sass@^0.2.0",
+      "susy": "npm:susy@^2.2.12",
       "text": "github:systemjs/plugin-text@^0.0.2"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "clean-css": "npm:clean-css@^3.4.9",
       "core-js": "npm:core-js@^1.1.4"
     }
   },
@@ -39,9 +43,13 @@
     "chai": "^3.5.0",
     "chokidar-socket-emitter": "^0.3.0",
     "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
     "gulp-html-replace": "^1.5.0",
     "gulp-ng-annotate": "^1.0.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-sass-glob": "0.0.8",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-template": "^3.0.0",
     "gulp-uglify": "^1.2.0",
     "jspm": "^0.16.15",
@@ -52,7 +60,9 @@
     "karma-mocha": "^0.2.*",
     "karma-mocha-reporter": "^1.1.*",
     "mocha": "^2.4.5",
+    "node-bourbon": "^4.2.3",
     "rimraf": "^2.4.3",
+    "streamqueue": "^1.1.1",
     "systemjs": "^0.19.18",
     "yargs": "^3.10.0"
   }
