@@ -51,7 +51,7 @@ gulp.task('serve', function(){
 				'/jspm.config.js': './jspm.config.js',
 				'/jspm_packages': './jspm_packages'
 			}
-		},
+		}
 	});
 });
 
