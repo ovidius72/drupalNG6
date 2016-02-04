@@ -1,0 +1,21 @@
+{
+  "name": "generator-ng-6",
+  "version": "0.0.0",
+  "description": "Templates for angular ng6 project",
+  "homepage": "",
+  "author": {
+    "name": "Antonio Pantano",
+    "email": "antonio@webbydays.com",
+    "url": ""
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "angular",
+    "material",
+    "jspm",
+    "yo"
+  ]
+}
