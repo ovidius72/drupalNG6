@@ -1,0 +1,9 @@
+name = NG6 - Resources
+description = Provides common drupal resources (nodes, menus and users)
+package = Drupal-NG6
+core = 7.x
+
+
+dependencies[] = drupal_ng6
+
+registry_autoload[] = PSR-4

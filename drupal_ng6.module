@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_page_alter().
+ */
+function drupal_ng6_page_alter(&$page) {
+//  debug(field_info_bundles());
+}

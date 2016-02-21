@@ -1,0 +1,19 @@
+;; Dependencies:
+;;  - restful, restful_token_auth, plug, entity, entityreference, ctools, registry_autoload
+;;  - PHP extensions: tokenize (used by registry autoload)
+
+name = Drupal NG6
+description = Integrate modern front-end development in Drupal
+package = Drupal-NG6
+core = 7.x
+
+
+dependencies[] = restful
+dependencies[] = restful_token_auth
+dependencies[] = plug
+dependencies[] = entity
+dependencies[] = entityreference
+dependencies[] = ctools
+dependencies[] = registry_autoload
+
+

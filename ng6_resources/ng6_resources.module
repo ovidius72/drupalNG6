@@ -1,0 +1,119 @@
+<?php
+
+
+namespace Drupal\ng6_resources\utils;
+
+/**
+ * Helper functions
+ */
+class NG6_Utils {
+  /**
+   * Add absolute URLs to the image file.
+   * If the request contains a query parameter style={style_name} the function
+   * will also return the uri and the absolute url to the styled image.
+   * WARNING: The style name must exists in the Drupal Site.
+   *
+   * @param $image
+   *  Array containing drupal image file data (fid, uri ..) *
+   * @return mixed
+   *  Array implemented with absolute url to the file
+   */
+  public static function getImage($image) {
+    if (isset($_GET['style'])) {
+      $style = $_GET['style'];
+      $imageStyle = image_style_path($style, $image['uri']);
+      $imageUrl = file_create_url($imageStyle);
+
+      $image['style'] = $style;
+      $image['styled_uri'] = $imageStyle;
+      $image['styled_url'] = $imageUrl;
+    }
+
+    $image['url'] = file_create_url($image['uri']);
+    return $image;
+  }
+
+
+
+  /**
+   * @param $fid
+   *  The uniqe file id of the managed file entity.
+   *
+   * @return array
+   *  the file metadata
+   *  Can returns the styled image url if requested by the query param style={style_name}
+   */
+  public static function getFile($fid) {
+    $w = entity_metadata_wrapper('file', $fid);
+    $values = array();
+
+    //Return all the file properties except the owner info.
+    if ($w) {
+      foreach ($w->getPropertyInfo() as $key => $prop) {
+        if ($key == 'owner') {
+          continue;
+        }
+        $values[$key] = $w->$key->value();
+      }
+
+      // Return a styled image if requested by query param
+      //Also check if the file is a valid image file
+      if (isset($_GET['style']) && $values['fid']) {
+        $file = file_load($fid);
+        $image = image_load($file->uri);
+
+        if ($file && image_get_info($file->uri)) {
+          $style = $_GET['style'];
+          $imageStyle = image_style_path($style, $file->uri);
+          $imageUrl = file_create_url($imageStyle);
+
+          $values['style'] = $style;
+          $values['styled_uri'] = $imageStyle;
+          $values['styled_url'] = $imageUrl;
+          foreach ($image->info as $key => $item) {
+            $values[$key] = $item;
+          }
+        }
+      }
+
+    }
+
+    return $values;
+  }
+
+  public static function getNode($nid) {
+    $w = entity_metadata_wrapper('node', $nid);
+
+    $fields = array();
+
+    foreach ($w->getPropertyInfo() as $key => $value) {
+
+      $content = $w->$key->value();
+      if(isset($w->$key->uid)){
+        $fields[$key] = $w->$key->uid->value();
+        continue;
+      }
+
+      $fieldType = $w->$key->info();
+
+      $fields[$key] = $w->$key->value();
+    }
+
+    return $fields;
+
+  }
+
+  public static function getVocabularyInfo($vid) {
+    $values = array();
+    $w = entity_metadata_wrapper('taxonomy_vocabulary', $vid);
+    if($w->getIdentifier()) {
+     $values['name'] = $w->name->value();
+     $values['machine_name'] = $w->machine_name->value();
+     $values['description'] = $w->description->value();
+     $values['term_count'] = $w->term_count->value();
+    }
+
+    return $values;
+  }
+  }
+
